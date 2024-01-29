@@ -1,0 +1,49 @@
+<div class="container mt-4">
+  <div class="card mb-4">
+    <div class="card-body text-left"> <!-- Alterado de "text-center" para "text-left" -->
+      <div *ngIf="!editingMode; else editMode">
+        <p class="edit-info-heading"><strong>Editar informações pessoais</strong></p>
+        <p><strong>Nome:</strong> {{ userName }}</p>
+        <p><strong>Idade:</strong> {{ userAge }}</p>
+        <p><strong>Telefone:</strong> {{ userPhone }}</p>
+        <p><strong>Endereço:</strong> {{ userAddress }}</p>
+      </div>
+      <ng-template #editMode>
+        <form (submit)="confirmEdit()">
+          <p class="edit-info-heading"><strong>Editando </strong></p>
+          <label for="userName">Nome:</label>
+          <input type="text" id="userName" [(ngModel)]="userName" name="userName" required>
+
+          <label for="userAge">Idade:</label>
+          <input type="number" id="userAge" [(ngModel)]="userAge" name="userAge" required>
+
+          <label for="userPhone">Telefone:</label>
+          <input type="text" id="userPhone" [(ngModel)]="userPhone" name="userPhone" required>
+
+          <label for="userAddress">Endereço:</label>
+          <input type="text" id="userAddress" [(ngModel)]="userAddress" name="userAddress" required>
+        <br><br>
+        </form>
+      </ng-template>
+
+      <div class="edit-buttons">
+        <button class="btn btn-transparent arrow-btn" *ngIf="!editingMode" (click)="enterEditMode()">✎</button>
+      </div>
+      <div *ngIf="editingMode" class="edit-buttons">
+        <button class="btn btn-transparent text-dark confirm-btn" (click)="confirmEdit()">✓</button>
+        <button class="btn btn-transparent text-dark cancel-btn" (click)="cancelEdit()">✕</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Delete Account Section -->
+  <div class="card mb-4">
+    <div class="card-body">
+      <h5><strong>Deletar Conta</strong></h5>
+      <p>Tem certeza que deseja deletar sua conta?</p>
+      <button class="btn btn-danger" (click)="deleteAccount()">Deletar Conta</button>
+    </div>
+  </div>
+  <br><br>
+</div>
+

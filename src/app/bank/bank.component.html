@@ -1,0 +1,108 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" type="text/css" />
+<!-- Adicione as âncoras para navegação suave -->
+<div id="deposito"></div>
+<div class="masthead">
+  <h1>Realize Suas Operações Bancárias com Conforto e Segurança</h1>
+  <p>Explore nossos serviços e conduza suas transações financeiras de forma fácil e protegida.</p>
+</div>
+
+<div class="features">
+  <div class="feature">
+    <i class="bi bi-box"></i>
+    <h3>Depósito</h3>
+    <p>Faça seu depósito com segurança</p>
+    <!-- Link para rolar para a seção de Depósito -->
+    <a (click)="scrollToSection('depositoOperacao')">Ir para Depósito ></a>
+  </div>
+  <div class="feature">
+    <i class="bi bi-cash"></i>
+    <h3>Sacar</h3>
+    <p>Faça seu saque com segurança</p>
+    <!-- Link para rolar para a seção de Saque -->
+    <a (click)="scrollToSection('saqueOperacao')">Ir para Saque ></a>
+  </div>
+  <div class="feature">
+    <i class="bi bi-arrow-right-circle"></i>
+    <h3>Transferir</h3>
+    <p>Faça sua transferência com segurança</p>
+    <!-- Link para rolar para a seção de Transferência -->
+    <a (click)="scrollToSection('transferenciaOperacao')">Ir para Transferência ></a>
+  </div>
+</div>
+
+<!-- Seção de Operações -->
+<div id="depositoOperacao" class="section deposito-operacao-section">
+  <h2>Depósito</h2>
+  <form [formGroup]="formDeposit">
+    <div class="mb-3">
+      <label class="form-label">Número da Conta:</label>
+      <input type="text" class="form-control" formControlName="accountNumber">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Valor:</label>
+      <input type="number" class="form-control" formControlName="value">
+    </div>
+    <div>
+      <button type="button" class="btn btn-primary" (click)="deposit()">Realizar Depósito</button>
+    </div>
+  </form>
+  <div *ngIf="mensagemSucesso" class="success-message">
+    {{ mensagemSucesso }}
+  </div>
+  <div *ngIf="mensagemErro" class="error-message">
+    {{ mensagemErro }}
+  </div>
+</div>
+
+
+<div id="saqueOperacao" class="section saque-operacao-section">
+  <h2>Saque</h2>
+  <!-- Conteúdo da seção de Saque -->
+  <form [formGroup]="formWithdraw">
+    <div class="mb-3">
+      <label class="form-label">Número da Conta:</label>
+      <input type="text" class="form-control" formControlName="accountNumber">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Valor:</label>
+      <input type="number" class="form-control" formControlName="value">
+    </div>
+    <div>
+      <button type="button" class="btn btn-primary" (click)="withdraw()">Realizar Saque</button>
+    </div>
+  </form>
+  <div *ngIf="mensagemSucesso" class="success-message">
+    {{ mensagemSucesso }}
+  </div>
+  <div *ngIf="mensagemErro" class="error-message">
+    {{ mensagemErro }}
+  </div>
+</div>
+
+<div id="transferenciaOperacao" class="section transferencia-operacao-section">
+  <h2>Transferência</h2>
+  <form [formGroup]="formTransfer">
+    <div class="mb-3">
+      <label class="form-label">Conta de Origem:</label>
+      <input type="text" class="form-control" formControlName="sourceAccountNumber">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Conta de Destino:</label>
+      <input type="text" class="form-control" formControlName="targetAccountNumber">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Valor:</label>
+      <input type="number" class="form-control" formControlName="value">
+    </div>
+    <div>
+      <button type="button" class="btn btn-primary" (click)="transfer()">Realizar Transferência</button>
+    </div>
+  </form>
+  <div *ngIf="mensagemSucesso" class="success-message">
+    {{ mensagemSucesso }}
+  </div>
+  <div *ngIf="mensagemErro" class="error-message">
+    {{ mensagemErro }}
+  </div>
+</div>
+

@@ -1,0 +1,76 @@
+<body class="signup-body">
+  <div class="container-fluid">
+    <div class="row g-0 align-items-center">
+      <div class="col-lg-6 mb-5 mb-lg-0">
+        <div class="card shadow round mt-1">
+          <div class="card-header">
+            <div class="logo-container d-flex align-items-center">
+              <img class="logo" src="assets/img/icon_logo.png" alt="Logo KBANK">
+              <h1><b>Cadastre-se</b></h1>
+            </div>
+          </div>
+
+        <div class="card-body">
+          <form [formGroup]="formSignUp">
+
+            <div class="row mb-3">
+              <div class="col">
+                <label class="form-label">Nome:</label>
+                <input type="text" class="form-control" formControlName="name" [class.error-border]="signupClicado && formSignUp.controls['name'].invalid"
+                  placeholder="{{ signupClicado && formSignUp.controls['name'].hasError('required') ? 'Campo obrigatório.' : '' }}">
+              </div>
+
+              <div class="col">
+                <label class="form-label">Idade:</label>
+                <input type="number" class="form-control" formControlName="age" [class.error-border]="signupClicado && formSignUp.controls['age'].invalid"
+                  placeholder="{{ signupClicado && formSignUp.controls['age'].hasError('required') ? 'Campo obrigatório.' : '' }}">
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <div class="col">
+                <label class="form-label">Telefone:</label>
+                <input type="number" class="form-control" formControlName="phone" [class.error-border]="signupClicado && formSignUp.controls['phone'].invalid"
+                  placeholder="{{ signupClicado && formSignUp.controls['phone'].hasError('required') ? 'Campo obrigatório.' : '' }}">
+              </div>
+
+              <div class="col">
+                <label class="form-label">CPF:</label>
+                <input type="text" class="form-control" formControlName="cpf" [class.error-border]="signupClicado && formSignUp.controls['cpf'].invalid"
+                  placeholder="{{ signupClicado && formSignUp.controls['cpf'].hasError('required') ? 'Campo obrigatório.' : '' }}">
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Senha:</label>
+              <input type="text" class="form-control" formControlName="password" [class.error-border]="signupClicado && formSignUp.controls['password'].invalid"
+                placeholder="{{ signupClicado && formSignUp.controls['password'].hasError('required') ? 'Campo obrigatório.' : '' }}">
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Endereço:</label>
+              <input type="text" class="form-control" formControlName="address" [class.error-border]="signupClicado && formSignUp.controls['address'].invalid"
+                placeholder="{{ signupClicado && formSignUp.controls['address'].hasError('required') ? 'Campo obrigatório.' : '' }}">
+            </div>
+
+            <div class="d-flex justify-content-center">
+              <button type="button" class="btn btn1" (click)="signUp()">
+                Registrar
+              </button>
+              <button class="btn btn2" routerLink="/login">LOGIN</button>
+            </div>
+
+            <div *ngIf="mensagemErro" class="error-message">
+              {{ mensagemErro }}
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-6 mb-5 mb-lg-0" >
+      <img src="assets/img_bg/4.jpg" class="w-100 rounded-4 shadow-4" alt="img bank" />
+    </div>
+  </div>
+</div>
+</body>

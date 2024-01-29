@@ -1,0 +1,77 @@
+@mixin feature-box-style {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  margin: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  i {
+    font-size: 2em;
+    margin-bottom: 10px;
+  }
+
+  h3 {
+    color: #517363;
+  }
+
+  a {
+    color: #007bff; /* Cor padrão para links do Bootstrap */
+    text-decoration: underline; /* Sublinhado para links */
+  }
+
+  a:hover {
+    color: #0056b3; /* Cor ao passar o mouse sobre o link */
+  }
+}
+
+.masthead {
+  background-color: #007bff; /* Mesma cor da barra de navegação */
+  color: #fff;
+  padding: 100px 0;
+  text-align: center;
+
+  h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+
+  p {
+    font-size: 1.5em;
+    margin-bottom: 40px;
+  }
+}
+
+
+.features {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 40px;
+
+  .feature {
+    @include feature-box-style;
+  }
+}
+
+.section {
+  width: 100%;
+  padding: 80px 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.deposito-operacao-section {
+  background-color: #f0f0f0; /* Cinza claro */
+}
+
+.saque-operacao-section {
+  background-color: #e0e0e0; /* Cinza claro mais escuro */
+}
+
+.transferencia-operacao-section {
+  background-color: #d1d8db; /* Cinza mais claro */
+}

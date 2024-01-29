@@ -1,0 +1,110 @@
+$primary-color: #007bff;
+$secondary-color: #555555;
+$success-color: #10ec11;
+$bg-light-color: #f8f9fa;
+$bd-color: #FFD700;
+$link-color: #007bff;
+
+.container {
+  .card {
+    border: 1px solid $primary-color;
+    margin-bottom: 20px;
+    position: relative;
+
+    .card-body {
+      padding: 20px;
+      position: relative;
+
+      .edit-buttons {
+        position: absolute;
+        bottom: 10px; /* Ajuste conforme necessário para a posição vertical */
+        right: 10px; /* Ajuste conforme necessário para a posição horizontal */
+
+        button {
+          width: 30px;
+          height: 30px;
+          font-size: 1rem;
+        }
+      }
+
+      h5 {
+        color: $primary-color;
+      }
+
+      p {
+        color: $secondary-color;
+
+        a {
+          color: $link-color;
+          text-decoration: underline;
+          cursor: pointer;
+
+          &:hover {
+            color: darken($link-color, 10%);
+          }
+        }
+      }
+
+      .toggle-icon {
+        cursor: pointer;
+        margin-left: 10px;
+
+        i {
+          font-size: 1.2rem;
+          color: $primary-color;
+        }
+      }
+
+      .profile-image {
+        max-width: 100px;
+        border-radius: 50%;
+        overflow: hidden;
+      }
+
+      .rounded-circle {
+        border-radius: 50%;
+        overflow: hidden;
+      }
+
+      // Adiciona estilos para a formatação da div de edição
+      form {
+        margin-top: 20px;
+
+        label {
+          display: block;
+          margin-bottom: 5px;
+          color: $primary-color;
+        }
+
+        input {
+          width: 100%;
+          padding: 8px;
+          margin-bottom: 10px;
+          border: 1px solid $primary-color;
+          border-radius: 4px;
+        }
+
+        button {
+          margin-right: 8px;
+        }
+      }
+    }
+  }
+}
+
+.btn1 {
+  background-color: $bg-light-color;
+  border-color: $bd-color;
+  color: $primary-color;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-right: 8px;
+}
+
+.btn2 {
+  background-color: #fff;
+  border-color: $bd-color;
+  color: $primary-color;
+  font-weight: bold;
+  margin-top: 10px;
+}

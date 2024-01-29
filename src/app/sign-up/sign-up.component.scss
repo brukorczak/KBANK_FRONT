@@ -1,0 +1,103 @@
+$primary-color: #007bff;
+$secondary-color: #555555;
+$success-color: #10ec11;
+$bg-light-color: #f8f9fa;
+$bd-color: #FFD700;
+
+.no-scroll {
+  overflow-y: hidden;
+}
+
+body.signup-body {
+  @extend .no-scroll;
+}
+
+.card {
+  background-color: transparent;
+  border-color: #F2CD5C;
+  border-width: 2px;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+  width: 90%; /* Ajuste a largura conforme necessário */
+  margin: 40px auto; /* Centralize o card na tela e adicione margens superior e inferior */
+  max-height: 100vh; /* Ajuste a altura máxima conforme necessário */
+}
+
+.card-body {
+  padding: 20px; /* Reduza o padding interno para tornar o conteúdo mais compacto */
+}
+
+.card-header {
+  background-color: transparent;
+  border-bottom: 2px solid #F2CD5C;
+  padding: 10px;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  max-height: 50px; /* Ajuste conforme necessário */
+  margin-right: 10px;
+}
+
+h1 {
+  font-size: 1.5rem; /* Ajuste o tamanho do texto conforme necessário */
+  text-align: left;
+  padding-top: 0.25rem;
+  margin-bottom: 0;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.container-fluid {
+  color: #000000;
+  font-size: large;
+  padding-top: 0rem;
+}
+
+.mb-1 {
+  color: #000;
+  font-size: medium;
+}
+
+.form-control {
+  background-color: transparent;
+  border-color: $primary-color;
+  &.error-border {
+    border-color: #ff0000; // Cor da borda vermelha para erro
+  }
+}
+
+.btn1 {
+  background-color: #F2CD5C;
+  border-color: #000;
+  color: #000;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-right: 8px;
+}
+
+.btn2 {
+  background-color: #fff;
+  border-color: #F2CD5C;
+  color: #000;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.d-flex {
+  margin-bottom: 2px;
+}
+
+.error-message {
+  color: #ff0000; // Cor do texto de erro
+  font-size: small;
+  margin-top: 4px;
+}

@@ -1,0 +1,50 @@
+<body class="login-body">
+  <div class="container-fluid">
+    <div class="row g-0 align-items-center">
+      <div class="col-lg-6 mb-5 mb-lg-0">
+        <div class="card cascading-right">
+          <div class="card-body p-5 shadow-5">
+            <div class="d-flex align-items-center justify-content-center mb-4">
+              <img src="assets/img/icon_logo.png" class="logo" alt="Logo KBANK" />
+              <h2 class="fw-bold mb-0">Faça seu login</h2>
+            </div>
+            <form [formGroup]="formLogin">
+              <div class="mb-3">
+                <label class="form-label text-left">CPF:</label>
+                <input type="text" class="form-control" formControlName="cpf" [class.error-border]="loginClicado && formLogin.controls['cpf'].invalid"
+                  placeholder="{{ loginClicado && formLogin.controls['cpf'].hasError('required') ? 'Campo obrigatório.' : '' }}">
+                <!-- Adicionando validação de CPF -->
+                <div *ngIf="loginClicado && formLogin.controls['cpf'].hasError('cpf')" class="error-message">
+                  CPF inválido.
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label text-left">Senha:</label>
+                <input type="password" class="form-control" formControlName="password" [class.error-border]="loginClicado && formLogin.controls['password'].invalid"
+                  placeholder="{{ loginClicado && formLogin.controls['password'].hasError('required') ? 'Campo obrigatório.' : '' }}">
+              </div>
+
+              <div class="d-flex justify-content-center">
+                <button type="button" class="btn btn1" (click)="login()">
+                  LOGIN
+                </button>
+                <button class="btn btn2" routerLink="/sign-up">
+                  SIGN-UP
+                </button>
+              </div>
+
+              <div *ngIf="mensagemErro" class="error-message">
+                {{ mensagemErro }}
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6 mb-5 mb-lg-0">
+        <img src="assets/img_bg/4.jpg" class="w-100 rounded-4 shadow-4" alt="img bank" />
+      </div>
+    </div>
+  </div>
+</body>
