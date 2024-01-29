@@ -10,11 +10,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Execute ng serve para iniciar um servidor de desenvolvimento. Navegue até http://localhost:4200/. A aplicação será recarregada automaticamente se você modificar algum dos arquivos de origem.
 
-## Development server
+## Resumo da Aplicação
 
 A aplicação KBANK oferece uma experiência bancária eficiente e segura, possibilitando aos usuários realizar diversas operações. 
 
-## Development server
+## Estrutura de Rotas
 
 O aplicativo utiliza o Angular Router para gerenciar a navegação entre as páginas. O arquivo app-routing.module.ts contém a configuração das rotas, redirecionando os usuários para as páginas apropriadas com base na URL.
 
