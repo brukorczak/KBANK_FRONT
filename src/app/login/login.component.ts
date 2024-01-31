@@ -37,7 +37,7 @@ export class LoginComponent {
       .login(this.formLogin.value.cpf, this.formLogin.value.password)
       .subscribe(
         (response: any) => {
-          this.router.navigate(['/inicial']);
+          this.router.navigate(['/home']);
         },
         (error) => {
           console.error('Erro de autenticação:', error);

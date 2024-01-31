@@ -1,0 +1,49 @@
+<!-- ======= mat-toolbar ======= -->
+<mat-toolbar
+  class="toolbar"
+  fxLayout="row"
+  fxLayoutAlign="space-between center"
+>
+  <div fxLayout="row" fxLayoutAlign="start center">
+    <img
+      class="toolbar-logo"
+      src="assets/img/icon_logo.png"
+      routerLink="/home"
+      alt="Logo KBank"
+    />
+    <span><b>KBank</b></span>
+  </div>
+
+  <div fxLayout="row" fxLayoutAlign="center center">
+    <button class="btn btn1 btn-primary" routerLink="/home">HOME</button>
+    <button class="btn btn1 btn-primary" routerLink="/banco">BANCO</button>
+    <button class="btn btn1 btn-primary" routerLink="/profile">PERFIL</button>
+  </div>
+
+  <div fxLayout="row" fxLayoutAlign="end center">
+    <img
+      class="toolbar-logout"
+      src="assets/img/logout.png"
+      (click)="logout()"
+      alt="Logout"
+    />
+  </div>
+</mat-toolbar>
+
+<router-outlet></router-outlet>
+
+<!-- ======= Footer ======= -->
+<div class="row fixed-bottom">
+  <div class="container text-center text-dark">
+    @ 2023 Copyright app-KBank.com by Bruna Korczak
+  </div>
+</div>
+
+<!-- ======= FUTURO ======= -->
+<!-- <button class="btn btn2 btn-primary" [matMenuTriggerFor]="BancoMenu">
+      BANCO
+    </button> -->
+<!-- <mat-menu #BancoMenu="matMenu">
+      <button mat-menu-item routerLink="/banco">BANK</button>
+      <button mat-menu-item routerLink="/historico">HISTORICO</button>
+    </mat-menu> -->

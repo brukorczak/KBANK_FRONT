@@ -1,49 +1,237 @@
-<!-- ======= mat-toolbar ======= -->
-<mat-toolbar
-  class="toolbar"
-  fxLayout="row"
-  fxLayoutAlign="space-between center"
->
-  <div fxLayout="row" fxLayoutAlign="start center">
-    <img
-      class="toolbar-logo"
-      src="assets/img/icon_logo.png"
-      routerLink="/home"
-      alt="Logo KBank"
-    />
-    <span><b>KBank</b></span>
-  </div>
+<app-header></app-header>
 
-  <div fxLayout="row" fxLayoutAlign="center center">
-    <button class="btn btn1 btn-primary" routerLink="/inicial">HOME</button>
-    <button class="btn btn1 btn-primary" routerLink="/banco">BANCO</button>
-    <button class="btn btn1 btn-primary" routerLink="/profile">PERFIL</button>
+<!-- ======= Hero Section ======= -->
+<section id="hero" class="d-flex align-items-center">
+  <div class="container" data-aos="zoom-out" data-aos-delay="100">
+    <div class="row">
+      <div class="col-xl-6">
+        <div class="hero-content">
+          <h1>Melhor experiência digital com Kbank</h1>
+          <h2>
+            Explore nossos serviços e conduza suas transações financeiras de
+            forma fácil e protegida.
+          </h2>
+        </div>
+      </div>
+    </div>
   </div>
+</section>
+<!-- End Hero -->
 
-  <div fxLayout="row" fxLayoutAlign="end center">
-    <img
-      class="toolbar-logout"
-      src="assets/img/logout.png"
-      (click)="logout()"
-      alt="Logout"
-    />
+<!-- ======= Tabs Section ======= -->
+<section id="tabs" class="tabs">
+  <div class="container" data-aos="fade-up">
+    <div class="tab-content">
+      <div class="tab-pane active show" id="tab-1">
+        <div class="row">
+          <div
+            class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <h3>Realize suas transações com tranquilidade no KBANK</h3>
+            <p class="fst-italic">
+              O KBANK garante a segurança e confiabilidade em todas as suas
+              operações bancárias.
+            </p>
+            <ul>
+              <li>
+                <i class="ri-check-double-line"></i> Faça depósitos e saques sem
+                preocupações.
+              </li>
+              <li>
+                <i class="ri-check-double-line"></i> Operações seguras e
+                protegidas contra qualquer ameaça.
+              </li>
+              <li>
+                <i class="ri-check-double-line"></i> Sua privacidade é nossa
+                prioridade.
+              </li>
+            </ul>
+            <p>
+              O KBANK assegura que todas as suas transações sejam conduzidas com
+              a máxima segurança. Estamos aqui para proporcionar a melhor
+              experiência bancária, garantindo sua tranquilidade em cada
+              operação.
+            </p>
+          </div>
+          <div
+            class="col-lg-6 order-1 order-lg-2 text-center"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <img
+              src="assets/img_bg/5.jpg"
+              alt=""
+              class="img-fluid"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</mat-toolbar>
+</section>
+<!-- End Tabs Section -->
 
-<router-outlet></router-outlet>
+<!-- ======= Team Section ======= -->
+<section id="team" class="team section-bg">
+  <div class="container" data-aos="fade-up">
+    <div class="section-title">
+      <h2>Team</h2>
+      <p>
+        Bem-vindo(a) ao coração da nossa equipe! Aqui estão os dedicados
+        profissionais que trabalham incansavelmente para tornar nossos objetivos
+        realidade. Cada membro traz consigo uma paixão única, habilidades
+        excepcionais e um comprometimento inabalável com a excelência. Juntos,
+        formamos uma equipe diversificada e talentosa, pronta para superar
+        desafios e alcançar o sucesso.
+      </p>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+        <div class="member" data-aos="fade-up" data-aos-delay="100">
+          <div class="member-img">
+            <img src="assets/img/team/team-1.jpeg" class="img-fluid" alt="" />
+            <div class="social">
+              <a href="https://github.com/brukorczak"><i class="bi bi-github"></i></a>
+              <a href="https://www.linkedin.com/in/bruna-diele-korczak-trino-03a050205/"><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+          <div class="member-info">
+            <h4>Bruna Korczak</h4>
+            <span>Back-end</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+        <div class="member" data-aos="fade-up" data-aos-delay="200">
+          <div class="member-img">
+            <img src="assets/img/team/team-2.jpeg" class="img-fluid" alt="" />
+            <div class="social">
+              <a href="https://github.com/brukorczak"><i class="bi bi-github"></i></a>
+              <a href="https://www.linkedin.com/in/bruna-diele-korczak-trino-03a050205/"><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+          <div class="member-info">
+            <h4>Bruna Trino</h4>
+            <span>Front-end</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+        <div class="member" data-aos="fade-up" data-aos-delay="300">
+          <div class="member-img">
+            <img src="assets/img/team/team-3.jpeg" class="img-fluid" alt="" />
+            <div class="social">
+              <a href="https://github.com/brukorczak"><i class="bi bi-github"></i></a>
+              <a href="https://www.linkedin.com/in/bruna-diele-korczak-trino-03a050205/"><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+          <div class="member-info">
+            <h4>Diele</h4>
+            <span>PO</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Team Section -->
+
+<!-- ======= Tecnologias Usadas Section ======= -->
+<section id="tecnologias" class="tecnologias">
+  <div class="container" data-aos="fade-up">
+    <div class="section-title">
+      <h2 style="color: red">Tecnologias Usadas</h2>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-4 col-md-6">
+        <ul class="tecnologias-list" data-aos="fade-up">
+          <li>
+            <span style="color: red">JAVA</span>
+          </li>
+          <li>
+            <span style="color: red">ANGULAR</span>
+          </li>
+          <li>
+            <span style="color: red">SCSS</span>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <ul class="tecnologias-list" data-aos="fade-up">
+          <li>
+            <span style="color: red">BOOTSTRAP</span>
+          </li>
+          <li>
+            <span style="color: red">SWAGGER</span>
+          </li>
+          <li>
+            <span style="color: red">API REST</span>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-4">
+        <ul class="tecnologias-list" data-aos="fade-up">
+          <li>
+            <span style="color: red">MYSQL</span>
+          </li>
+          <li>
+            <span style="color: red">H2</span>
+          </li>
+          <li>
+            <span style="color: red">QUARKUS</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Tecnologias Usadas Section -->
 
 <!-- ======= Footer ======= -->
-<div class="row fixed-bottom">
-  <div class="container text-center text-dark">
-    @ 2023 Copyright app-KBank.com by Bruna Korczak
-  </div>
-</div>
+<footer id="footer">
+  <div class="footer-top">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-md-6 footer-contact">
+          <h3>KBANK<span>.</span></h3>
+          <p>
+            98 CUBA <br />
+            Hortolândia, SP 13186477<br />
+            Brasil <br /><br />
+            <strong>Phone:</strong> +55 19 991154069<br />
+            <strong>Email:</strong> kbank@kbank.com<br />
+          </p>
+        </div>
 
-<!-- ======= FUTURO ======= -->
-<!-- <button class="btn btn2 btn-primary" [matMenuTriggerFor]="BancoMenu">
-      BANCO
-    </button> -->
-<!-- <mat-menu #BancoMenu="matMenu">
-      <button mat-menu-item routerLink="/banco">BANK</button>
-      <button mat-menu-item routerLink="/historico">HISTORICO</button>
-    </mat-menu> -->
+        <div class="col-lg-3 col-md-6 footer-links">
+          <h4>Our Services</h4>
+          <ul>
+            <li>
+              <i class="bx bx-chevron-right"></i>
+              <a href="#">Back end Developer</a>
+            </li>
+            <li>
+              <i class="bx bx-chevron-right"></i>
+              <a href="#">Web developer</a>
+            </li>
+            <li>
+              <i class="bx bx-chevron-right"></i>
+              <a href="#">Software Developer</a>
+            </li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">QA</a></li>
+            <li>
+              <i class="bx bx-chevron-right"></i> <a href="#">API Rest</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- End Footer -->

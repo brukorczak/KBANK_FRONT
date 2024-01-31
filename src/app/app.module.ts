@@ -7,7 +7,6 @@ import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -17,18 +16,19 @@ import { BankComponent } from './bank/bank.component';
 import { SettingsComponent } from './settings/settings.component';
 import { MatIconModule } from '@angular/material/icon';
 import { NgxMaskModule } from 'ngx-mask';
-import { InicialComponent } from './inicial/inicial.component';
+import { HeaderComponent } from './header/header.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     SignUpComponent,
-    HomeComponent,
     ProfileComponent,
     BankComponent,
     SettingsComponent,
-    InicialComponent,
+    HeaderComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,8 +41,9 @@ import { InicialComponent } from './inicial/inicial.component';
     FormsModule,
     ReactiveFormsModule,
     MatIconModule,
+
   ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
