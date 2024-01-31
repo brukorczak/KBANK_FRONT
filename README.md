@@ -1,27 +1,21 @@
-# Banco
+# KBANK 
+
+### Descrição
+
+Esta é uma aplicação que integra com a API do BANCO para realizar operações bancárias e gerenciar usuários. A API do BANCO está disponível em [GitHub](https://github.com/brukorczak/KBANK_API.git).
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.8.
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Execute ng serve para iniciar um servidor de desenvolvimento. Navegue até http://localhost:4200/. A aplicação será recarregada automaticamente se você modificar algum dos arquivos de origem.
 
-## Code scaffolding
+## Resumo da Aplicação
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+A aplicação KBANK oferece uma experiência bancária eficiente e segura, possibilitando aos usuários realizar diversas operações. 
 
-## Build
+## Estrutura de Rotas
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+O aplicativo utiliza o Angular Router para gerenciar a navegação entre as páginas. O arquivo app-routing.module.ts contém a configuração das rotas, redirecionando os usuários para as páginas apropriadas com base na URL.
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Esperamos que esta aplicação proporcione uma experiência bancária eficiente, segura e amigável para os usuários.
