@@ -6,14 +6,18 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
   formLogin: FormGroup;
   loginClicado: boolean = false;
   mensagemErro: string = '';
 
-  constructor(private loginService: LoginService, private router: Router, private fb: FormBuilder) {
+  constructor(
+    private loginService: LoginService,
+    private router: Router,
+    private fb: FormBuilder
+  ) {
     this.formLogin = this.fb.group({
       cpf: ['', [Validators.required]],
       password: ['', Validators.required],
@@ -29,15 +33,16 @@ export class LoginComponent {
       return;
     }
 
-    this.loginService.login(this.formLogin.value.cpf, this.formLogin.value.password).subscribe(
-      (response: any) => {
-        this.router.navigate(['/home']);
-      },
-      (error) => {
-        console.error('Erro de autenticação:', error);
-        this.mensagemErro = 'Usuário não encontrado ou senha incorreta';
-      }
-    );
+    this.loginService
+      .login(this.formLogin.value.cpf, this.formLogin.value.password)
+      .subscribe(
+        (response: any) => {
+          this.router.navigate(['/inicial']);
+        },
+        (error) => {
+          console.error('Erro de autenticação:', error);
+          this.mensagemErro = 'Usuário não encontrado ou senha incorreta';
+        }
+      );
   }
-
 }

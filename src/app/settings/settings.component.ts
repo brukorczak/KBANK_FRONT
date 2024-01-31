@@ -5,11 +5,10 @@ import { SettingsService } from './settings.service';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 
-
 @Component({
   selector: 'app-settings',
   templateUrl: './settings.component.html',
-  styleUrls: ['./settings.component.scss']
+  styleUrls: ['./settings.component.scss'],
 })
 export class SettingsComponent implements OnInit {
   userId: number | null = null;
@@ -22,7 +21,7 @@ export class SettingsComponent implements OnInit {
   constructor(
     private loginService: LoginService,
     private settingsService: SettingsService,
-    private router:Router,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -74,7 +73,6 @@ export class SettingsComponent implements OnInit {
     this.editingMode = false;
   }
 
-
   deleteAccount() {
     const confirmDelete = confirm('Deseja mesmo apagar a conta?');
 
@@ -90,5 +88,4 @@ export class SettingsComponent implements OnInit {
       );
     }
   }
-
 }

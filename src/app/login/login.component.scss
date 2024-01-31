@@ -2,7 +2,7 @@ $primary-color: #007bff;
 $secondary-color: #555555;
 $success-color: #10ec11;
 $bg-light-color: #f8f9fa;
-$bd-color: #FFD700;
+$bd-color: #ffd700;
 
 .no-scroll {
   overflow-y: hidden;
@@ -12,15 +12,24 @@ body.login-body {
   @extend .no-scroll;
 }
 
-.logo-container {
+.card-header {
+  background-color: transparent;
+  border-bottom: 2px solid #f2cd5c;
+  padding: 10px;
   display: flex;
-  justify-content: center;
   align-items: center;
 }
 
 .logo {
-  max-height: 50px; /* Ajuste conforme necessário */
-  margin-right: 10px; /* Adiciona um espaçamento à direita do logo, ajuste conforme necessário */
+  max-height: 50px;
+  margin-right: 10px;
+}
+
+h1 {
+  font-size: 1.5rem;
+  text-align: left;
+  padding-top: 0.25rem;
+  margin-bottom: 0;
 }
 
 .login-body {
@@ -35,49 +44,16 @@ body.login-body {
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
   width: 80%;
   margin: 40px auto;
-  padding: 30px;
-  height: 450px; /* Altura fixa para o card */
+  max-height: 100vh;
 }
 
-// .card {
-//   background-color: transparent;
-//   border-color: #F2CD5C;
-//   border-width: 2px;
-//   box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
-//   width: 90%; /* Ajuste a largura conforme necessário */
-//   margin: 40px auto; /* Centralize o card na tela e adicione margens superior e inferior */
-//   max-height: 100vh; /* Ajuste a altura máxima conforme necessário */
-// }
-
-.card-body-container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-h1 {
-  text-align: left;
-  padding-top: 0.25rem;
-  margin-bottom: 0;
-  border-color: $bd-color;
-}
-
-.inputs {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
+.card-body {
+  padding: 20px;
 }
 
 .container-fluid {
-  color: $primary-color;
   font-size: large;
   padding-top: 0rem;
-}
-
-.mb-1 {
-  color: $primary-color;
-  font-size: medium;
 }
 
 .form-control {
@@ -89,7 +65,7 @@ h1 {
 }
 
 .btn1 {
-  background-color: #F2CD5C;
+  background-color: #f2cd5c;
   border-color: #000;
   color: #000;
   font-weight: bold;
@@ -99,7 +75,7 @@ h1 {
 
 .btn2 {
   background-color: #fff;
-  border-color: #F2CD5C;
+  border-color: #f2cd5c;
   color: #000;
   font-weight: bold;
   margin-top: 10px;
@@ -113,4 +89,10 @@ h1 {
   color: #ff0000;
   font-size: small;
   margin-top: 4px;
+}
+
+.input-group-text {
+  border-color: #007bff;
+  color: #007bff;
+  background-color: transparent;
 }

@@ -1,9 +1,9 @@
-import { HttpClient } from "@angular/common/http";
-import { EventEmitter, Injectable } from "@angular/core";
-import { Observable, tap } from "rxjs";
+import { HttpClient } from '@angular/common/http';
+import { EventEmitter, Injectable } from '@angular/core';
+import { Observable, tap } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LoginService {
   private apiUrl = 'http://localhost:8080/api/v1/users';
@@ -25,20 +25,27 @@ export class LoginService {
     const body = { cpf, password };
     const headers = { 'Content-Type': 'application/json' };
 
-    return this.http.post(`${this.apiUrl}/login`, body, { headers, withCredentials: true }).pipe(
-      tap((response: any) => {
-        console.log('Resposta do login:', response);
-        if (response && response.id) {
-          this.authenticatedUserId = response.id;
-          this.authenticatedUserName = response.name;
+    return this.http
+      .post(`${this.apiUrl}/login`, body, { headers, withCredentials: true })
+      .pipe(
+        tap((response: any) => {
+          console.log('Resposta do login:', response);
+          if (response && response.id) {
+            this.authenticatedUserId = response.id;
+            this.authenticatedUserName = response.name;
 
-          // Salva os dados no localStorage
-          localStorage.setItem('authenticatedUserId', String(this.authenticatedUserId));
-          localStorage.setItem('authenticatedUserName', this.authenticatedUserName || ''); // Garante que seja uma string
-
-        }
-      })
-    );
+            // Salva os dados no localStorage
+            localStorage.setItem(
+              'authenticatedUserId',
+              String(this.authenticatedUserId)
+            );
+            localStorage.setItem(
+              'authenticatedUserName',
+              this.authenticatedUserName || ''
+            ); // Garante que seja uma string
+          }
+        })
+      );
   }
 
   getAuthenticatedUserId(): number | null {

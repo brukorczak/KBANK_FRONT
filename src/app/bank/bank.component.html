@@ -1,108 +1,211 @@
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" type="text/css" />
-<!-- Adicione as âncoras para navegação suave -->
+<app-home></app-home>
+
+<link
+  href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+  rel="stylesheet"
+  type="text/css"
+/>
+
+<!-- ======= HERO ======= -->
 <div id="deposito"></div>
 <div class="masthead">
   <h1>Realize Suas Operações Bancárias com Conforto e Segurança</h1>
-  <p>Explore nossos serviços e conduza suas transações financeiras de forma fácil e protegida.</p>
+  <p>
+    Explore nossos serviços e conduza suas transações financeiras de forma fácil
+    e protegida.
+  </p>
 </div>
 
+<!-- ======= 3 DIV´S ======= -->
 <div class="features">
   <div class="feature">
     <i class="bi bi-box"></i>
     <h3>Depósito</h3>
     <p>Faça seu depósito com segurança</p>
-    <!-- Link para rolar para a seção de Depósito -->
     <a (click)="scrollToSection('depositoOperacao')">Ir para Depósito ></a>
   </div>
   <div class="feature">
     <i class="bi bi-cash"></i>
     <h3>Sacar</h3>
     <p>Faça seu saque com segurança</p>
-    <!-- Link para rolar para a seção de Saque -->
     <a (click)="scrollToSection('saqueOperacao')">Ir para Saque ></a>
   </div>
   <div class="feature">
     <i class="bi bi-arrow-right-circle"></i>
     <h3>Transferir</h3>
     <p>Faça sua transferência com segurança</p>
-    <!-- Link para rolar para a seção de Transferência -->
-    <a (click)="scrollToSection('transferenciaOperacao')">Ir para Transferência ></a>
+    <a (click)="scrollToSection('transferenciaOperacao')"
+      >Ir para Transferência ></a
+    >
   </div>
 </div>
 
-<!-- Seção de Operações -->
-<div id="depositoOperacao" class="section deposito-operacao-section">
-  <h2>Depósito</h2>
-  <form [formGroup]="formDeposit">
-    <div class="mb-3">
-      <label class="form-label">Número da Conta:</label>
-      <input type="text" class="form-control" formControlName="accountNumber">
+<!-- ======= SEÇÃO DE OPERAÇÕES ======= -->
+
+<!-- ======= DEPÓSITO ======= -->
+<div
+  id="depositoOperacao"
+  class="section deposito-operacao-section flex-container"
+>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="operation-content text-start mt-5">
+        <!-- Adicione a classe mt-4 para margem superior -->
+        <h2>Depósito</h2>
+        <form [formGroup]="formDeposit">
+          <div class="mb-3">
+            <label class="form-label">Número da Conta:</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="accountNumber"
+              style="width: 500px"
+            />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Valor:</label>
+            <input
+              type="number"
+              class="form-control"
+              formControlName="value"
+              style="width: 500px"
+            />
+          </div>
+          <div>
+            <button type="button" class="btn btn-primary" (click)="deposit()">
+              Realizar Depósito
+            </button>
+          </div>
+        </form>
+        <div *ngIf="mensagemSucessoDeposito" class="success-message">
+          {{ mensagemSucessoDeposito }}
+        </div>
+        <div *ngIf="mensagemErroDeposito" class="error-message">
+          {{ mensagemErroDeposito }}
+        </div>
+      </div>
     </div>
-    <div class="mb-3">
-      <label class="form-label">Valor:</label>
-      <input type="number" class="form-control" formControlName="value">
+
+    <div class="col-md-6">
+      <img
+        src="assets/img_bg/1.jpg"
+        alt="Imagem de Depósito"
+        class="img-fluid"
+        style="max-width: 600px"
+      />
     </div>
-    <div>
-      <button type="button" class="btn btn-primary" (click)="deposit()">Realizar Depósito</button>
-    </div>
-  </form>
-  <div *ngIf="mensagemSucesso" class="success-message">
-    {{ mensagemSucesso }}
-  </div>
-  <div *ngIf="mensagemErro" class="error-message">
-    {{ mensagemErro }}
   </div>
 </div>
 
-
+<!-- ======= SAQUE ======= -->
 <div id="saqueOperacao" class="section saque-operacao-section">
-  <h2>Saque</h2>
-  <!-- Conteúdo da seção de Saque -->
-  <form [formGroup]="formWithdraw">
-    <div class="mb-3">
-      <label class="form-label">Número da Conta:</label>
-      <input type="text" class="form-control" formControlName="accountNumber">
+  <div class="row">
+    <div class="col-md-6">
+      <img
+        src="assets/img_bg/3.jpg"
+        alt="Imagem de Saque"
+        class="img-fluid"
+        style="width: 600px"
+      />
     </div>
-    <div class="mb-3">
-      <label class="form-label">Valor:</label>
-      <input type="number" class="form-control" formControlName="value">
+
+    <div class="col-md-6">
+      <div class="operation-content text-start mt-4">
+        <h2>Saque</h2>
+        <form [formGroup]="formWithdraw">
+          <div class="mb-4">
+            <label class="form-label">Número da Conta:</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="accountNumber"
+              style="width: 500px"
+            />
+          </div>
+          <div class="mb-5">
+            <label class="form-label">Valor:</label>
+            <input
+              type="number"
+              class="form-control"
+              formControlName="value"
+              style="width: 500px"
+            />
+          </div>
+          <div>
+            <button type="button" class="btn btn-primary" (click)="withdraw()">
+              Realizar Saque
+            </button>
+          </div>
+        </form>
+        <div *ngIf="mensagemSucessoSaque" class="success-message">
+          {{ mensagemSucessoSaque }}
+        </div>
+        <div *ngIf="mensagemErroSaque" class="error-message">
+          {{ mensagemErroSaque }}
+        </div>
+      </div>
     </div>
-    <div>
-      <button type="button" class="btn btn-primary" (click)="withdraw()">Realizar Saque</button>
-    </div>
-  </form>
-  <div *ngIf="mensagemSucesso" class="success-message">
-    {{ mensagemSucesso }}
-  </div>
-  <div *ngIf="mensagemErro" class="error-message">
-    {{ mensagemErro }}
   </div>
 </div>
 
-<div id="transferenciaOperacao" class="section transferencia-operacao-section">
-  <h2>Transferência</h2>
-  <form [formGroup]="formTransfer">
-    <div class="mb-3">
-      <label class="form-label">Conta de Origem:</label>
-      <input type="text" class="form-control" formControlName="sourceAccountNumber">
+<!-- ======= TRANSFERÊNCIA ======= -->
+<div
+  id="transferenciaOperacao"
+  class="section transferencia-operacao-section flex-container"
+>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="operation-content text-start mt-5">
+        <h2>Transferência</h2>
+        <form [formGroup]="formTransfer">
+          <div class="mb-4">
+            <label class="form-label">Conta de Origem:</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="sourceAccountNumber"
+              style="width: 500px"
+            />
+          </div>
+          <div class="mb-4">
+            <label class="form-label">Conta de Destino:</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="targetAccountNumber"
+              style="width: 500px"
+            />
+          </div>
+          <div class="mb-5">
+            <label class="form-label">Valor:</label>
+            <input
+              type="number"
+              class="form-control"
+              formControlName="value"
+              style="width: 500px"
+            />
+          </div>
+          <div>
+            <button type="button" class="btn btn-primary" (click)="transfer()">
+              Realizar Transferência
+            </button>
+          </div>
+        </form>
+        <div *ngIf="mensagemSucessoTransferencia" class="success-message">
+          {{ mensagemSucessoTransferencia }}
+        </div>
+        <div *ngIf="mensagemErroTransferencia" class="error-message">
+          {{ mensagemErroTransferencia }}
+        </div>
+      </div>
     </div>
-    <div class="mb-3">
-      <label class="form-label">Conta de Destino:</label>
-      <input type="text" class="form-control" formControlName="targetAccountNumber">
+    <div class="col-md-6">
+      <img
+        src="assets/img_bg/4.jpg"
+        alt="Imagem de Transferência"
+        class="img-fluid"
+        style="max-width: 500px"
+      />
     </div>
-    <div class="mb-3">
-      <label class="form-label">Valor:</label>
-      <input type="number" class="form-control" formControlName="value">
-    </div>
-    <div>
-      <button type="button" class="btn btn-primary" (click)="transfer()">Realizar Transferência</button>
-    </div>
-  </form>
-  <div *ngIf="mensagemSucesso" class="success-message">
-    {{ mensagemSucesso }}
-  </div>
-  <div *ngIf="mensagemErro" class="error-message">
-    {{ mensagemErro }}
   </div>
 </div>
-

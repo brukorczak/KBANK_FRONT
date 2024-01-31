@@ -17,6 +17,7 @@ import { BankComponent } from './bank/bank.component';
 import { SettingsComponent } from './settings/settings.component';
 import { MatIconModule } from '@angular/material/icon';
 import { NgxMaskModule } from 'ngx-mask';
+import { InicialComponent } from './inicial/inicial.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { NgxMaskModule } from 'ngx-mask';
     ProfileComponent,
     BankComponent,
     SettingsComponent,
+    InicialComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,9 +41,8 @@ import { NgxMaskModule } from 'ngx-mask';
     FormsModule,
     ReactiveFormsModule,
     MatIconModule,
-    
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

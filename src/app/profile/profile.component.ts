@@ -137,11 +137,11 @@ export class ProfileComponent implements OnInit {
   }
 
   toggleAccountModal() {
-  this.showAccountModal = !this.showAccountModal;
-  if (!this.showAccountModal) {
-    document.body.classList.remove('modal-open');
+    this.showAccountModal = !this.showAccountModal;
+    if (!this.showAccountModal) {
+      document.body.classList.remove('modal-open');
+    }
   }
-}
 
   hasAccountType(): boolean {
     return this.balanceList && this.balanceList.length > 0;

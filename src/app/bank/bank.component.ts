@@ -1,57 +1,64 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';  // Importe o FormBuilder e Validators
+import { FormBuilder, FormGroup, Validators } from '@angular/forms'; // Importe o FormBuilder e Validators
 
-import { BankService } from './bank.service';  // Importe o serviço
+import { BankService } from './bank.service'; // Importe o serviço
 
 @Component({
   selector: 'app-bank',
   templateUrl: './bank.component.html',
-  styleUrls: ['./bank.component.scss']
+  styleUrls: ['./bank.component.scss'],
 })
 export class BankComponent {
-  formDeposit: FormGroup;  // Adicione o FormGroup para o formulário
+  formDeposit: FormGroup; // Adicione o FormGroup para o formulário
   formWithdraw: FormGroup;
   formTransfer: FormGroup;
-  mensagemSucesso: string = '';
-  mensagemErro: string = '';
+  mensagemSucessoDeposito: string = '';
+  mensagemErroDeposito: string = '';
+
+  mensagemSucessoSaque: string = '';
+  mensagemErroSaque: string = '';
+
+  mensagemSucessoTransferencia: string = '';
+  mensagemErroTransferencia: string = '';
 
   constructor(
     private router: Router,
     private bankService: BankService,
-    private fb: FormBuilder  // Injete o FormBuilder
-    ) {
-      this.formDeposit = this.fb.group({
-        accountNumber: ['', Validators.required],
-        value: [null, [Validators.required, Validators.min(1)]]
-      });
+    private fb: FormBuilder // Injete o FormBuilder
+  ) {
+    this.formDeposit = this.fb.group({
+      accountNumber: ['', Validators.required],
+      value: [null, [Validators.required, Validators.min(1)]],
+    });
 
-      this.formWithdraw = this.fb.group({
-        accountNumber: ['', Validators.required],
-        value: [null, [Validators.required, Validators.min(1)]]
-      });
+    this.formWithdraw = this.fb.group({
+      accountNumber: ['', Validators.required],
+      value: [null, [Validators.required, Validators.min(1)]],
+    });
 
-      this.formTransfer = this.fb.group({
-        sourceAccountNumber: ['', Validators.required],
-        targetAccountNumber: ['', Validators.required],
-        value: [null, [Validators.required, Validators.min(1)]]
-      });
-    }
+    this.formTransfer = this.fb.group({
+      sourceAccountNumber: ['', Validators.required],
+      targetAccountNumber: ['', Validators.required],
+      value: [null, [Validators.required, Validators.min(1)]],
+    });
+  }
 
   deposit(): void {
     if (this.formDeposit.valid) {
       const { accountNumber, value } = this.formDeposit.value;
       this.bankService.deposit(accountNumber, value).subscribe(
         (response) => {
-          this.mensagemSucesso = response;  // Agora, a mensagem de sucesso deve vir diretamente da resposta
+          this.mensagemSucessoDeposito = response;
           this.formDeposit.reset();
         },
         (error) => {
-          this.mensagemErro = `Erro ao realizar depósito: ${error.message}`;
+          this.mensagemErroDeposito = `Erro ao realizar depósito reveja os dados`;
         }
       );
     } else {
-      this.mensagemErro = 'Por favor, preencha todos os campos corretamente.';
+      this.mensagemErroDeposito =
+        'Por favor, preencha todos os campos corretamente.';
     }
   }
 
@@ -60,35 +67,39 @@ export class BankComponent {
       const { accountNumber, value } = this.formWithdraw.value;
       this.bankService.withdraw(accountNumber, value).subscribe(
         (response) => {
-          this.mensagemSucesso = response;  // Agora, a mensagem de sucesso deve vir diretamente da resposta
+          this.mensagemSucessoSaque = response;
           this.formWithdraw.reset();
         },
         (error) => {
-          this.mensagemErro = `Erro ao realizar saque: ${error.message}`;
+          this.mensagemErroSaque = `Erro ao realizar saque, reveja os dados`;
         }
       );
     } else {
-      this.mensagemErro = 'Por favor, preencha todos os campos corretamente.';
+      this.mensagemErroSaque =
+        'Por favor, preencha todos os campos corretamente.';
     }
   }
 
   transfer(): void {
     if (this.formTransfer.valid) {
-      const { sourceAccountNumber, targetAccountNumber, value } = this.formTransfer.value;
-      this.bankService.transfer(sourceAccountNumber, targetAccountNumber, value).subscribe(
-        (response) => {
-          this.mensagemSucesso = response;
-          this.formTransfer.reset();
-        },
-        (error) => {
-          this.mensagemErro = `Erro ao realizar transferência: ${error.message}`;
-        }
-      );
+      const { sourceAccountNumber, targetAccountNumber, value } =
+        this.formTransfer.value;
+      this.bankService
+        .transfer(sourceAccountNumber, targetAccountNumber, value)
+        .subscribe(
+          (response) => {
+            this.mensagemSucessoTransferencia = response;
+            this.formTransfer.reset();
+          },
+          (error) => {
+            this.mensagemErroTransferencia = `Erro ao realizar transferência, reveja os dados`;
+          }
+        );
     } else {
-      this.mensagemErro = 'Por favor, preencha todos os campos corretamente.';
+      this.mensagemErroTransferencia =
+        'Por favor, preencha todos os campos corretamente.';
     }
   }
-
   scrollToSection(sectionId: string): void {
     const element = document.getElementById(sectionId);
     if (element) {

@@ -1,33 +1,56 @@
+<app-home></app-home>
+
 <div class="container mt-4">
+  <!-- usuário -->
+  <div class="card mb-4">
+    <div class="card-body text-center">
+      <div class="advisor_thumb">
+        <img
+          class="profile-image rounded-circle"
+          [src]="userIcons[currentIndex].image"
+          alt="User Icon"
+        />
+        <h5 class="my-3">{{ userName }}</h5>
+        <p class="text-muted mb-1">CONTA BANCÁRIA</p>
 
-<!-- usuário -->
-<div class="card mb-4">
-  <div class="card-body text-center">
-    <div class="advisor_thumb">
-      <img
-        class="profile-image rounded-circle"
-        [src]="userIcons[currentIndex].image"
-        alt="User Icon"
-      />
-      <h5 class="my-3">Nome: {{ userName }}</h5>
-      <p class="text-muted mb-1">CONTA BANCÁRIA</p>
-
-      <div class="edit-buttons">
-        <button class="btn btn-transparent arrow-btn" *ngIf="!editingMode" (click)="enterEditMode()">✎</button>
-      </div>
-      <div *ngIf="editingMode" class="edit-buttons">
-        <button class="btn btn-transparent text-dark confirm-btn" (click)="confirmEdit()">✓</button>
-        <button class="btn btn-transparent text-dark cancel-btn" (click)="cancelEdit()">✕</button>
+        <div class="edit-buttons">
+          <button
+            class="btn btn-transparent arrow-btn"
+            *ngIf="!editingMode"
+            (click)="enterEditMode()"
+          >
+            ✎
+          </button>
+        </div>
+        <div *ngIf="editingMode" class="edit-buttons">
+          <button
+            class="btn btn-transparent text-dark confirm-btn"
+            (click)="confirmEdit()"
+          >
+            ✓
+          </button>
+          <button
+            class="btn btn-transparent text-dark cancel-btn"
+            (click)="cancelEdit()"
+          >
+            ✕
+          </button>
+        </div>
       </div>
     </div>
+    <div *ngIf="editingMode" class="edit-buttons">
+      <button class="btn btn-transparent text-dark" (click)="prevIcon()">
+        ‹
+      </button>
+      <button class="btn btn-transparent text-dark" (click)="nextIcon()">
+        ›
+      </button>
+    </div>
   </div>
-  <div *ngIf="editingMode" class="edit-buttons">
-    <button class="btn btn-transparent text-dark" (click)="prevIcon()">‹</button>
-    <button class="btn btn-transparent text-dark" (click)="nextIcon()">›</button>
-  </div>
-</div>
 
-  <!-- Informações do usuário -->
+
+
+  <!-- ======= CARD USUÁRIO ======= -->
   <div class="card mb-4">
     <div class="card-body">
       <h5><strong>Informações Pessoais</strong></h5>
@@ -37,6 +60,7 @@
     </div>
   </div>
 
+  <!-- ======= CARD INFO BANCÁRIA ======= -->
   <div class="card mb-4">
     <div class="card-body">
       <h5>
@@ -76,7 +100,10 @@
           </div>
         </ng-container>
         <ng-container *ngIf="!balanceList || balanceList.length === 0">
-          <p>Nenhuma informação de conta disponível. Clique <a (click)="toggleAccountModal()">AQUI</a> para criar a conta.</p>
+          <p>
+            Nenhuma informação de conta disponível. Clique
+            <a (click)="toggleAccountModal()">AQUI</a> para criar a conta.
+          </p>
 
           <div class="account-modal" *ngIf="showAccountModal">
             <label for="accountType">Escolha o tipo de conta:</label>
@@ -112,10 +139,10 @@
       </div>
     </div>
   </div>
-  <button class="btn  btn-primary" routerLink="/home/settings">
+
+  <!-- ======= CONFIG ======= -->
+  <button class="btn btn-primary" routerLink="/settings">
     <mat-icon>settings</mat-icon>
   </button>
-  <br><br><br><br>
+  <br /><br /><br /><br />
 </div>
-
-

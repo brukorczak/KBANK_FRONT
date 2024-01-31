@@ -13,7 +13,7 @@ export class ProfileService {
   constructor(private http: HttpClient) {}
 
   getUserInfoById(userId: number): Observable<IUser> {
-    const url = `${this.apiUrl}/${userId}/info`;
+    const url = `${this.apiUrl}/${userId}/user`;
     return this.http.get<IUser>(url);
   }
 
@@ -28,15 +28,18 @@ export class ProfileService {
 
     console.log('Antes da solicitação de criação de conta...');
 
-    return this.http.post(`${this.apiUrl}/${userId}/accounts`, body, {
-      headers,
-    }).pipe(
-      tap(response => console.log('Resposta da criação de conta:', response)),
-      catchError(error => {
-        console.error('Erro na criação de conta:', error);
-        throw error;
+    return this.http
+      .post(`${this.apiUrl}/${userId}/accounts`, body, {
+        headers,
       })
-    );
+      .pipe(
+        tap((response) =>
+          console.log('Resposta da criação de conta:', response)
+        ),
+        catchError((error) => {
+          console.error('Erro na criação de conta:', error);
+          throw error;
+        })
+      );
   }
-
 }

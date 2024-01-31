@@ -13,11 +13,13 @@
   max-height: 30px;
 }
 
-span{
+span {
   color: #fff;
 }
 
-.btn1, .btn2, .btn3 {
+.btn1,
+.btn2,
+.btn3 {
   background-color: transparent;
   border: 2px solid transparent;
   color: #fff;
@@ -28,18 +30,20 @@ span{
 }
 
 .btn1 {
-  border-right-color: #FFD700;
+  border-right-color: #ffd700;
 }
 
 .btn2 {
-  border-right-color: #FFD700;
+  border-right-color: #ffd700;
 }
 
 .btn3 {
-  border-right-color: #FFD700;
+  border-right-color: #ffd700;
 }
 
-.btn1:hover, .btn2:hover, .btn3:hover {
+.btn1:hover,
+.btn2:hover,
+.btn3:hover {
   box-shadow: 5px 0 10px -5px #10ec11; /* Sombra verde ao passar o mouse */
 }
 
@@ -56,7 +60,8 @@ span{
   color: #444444;
 }
 
-
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   color: #007bff; /* Azul para cabeçalhos */
 }

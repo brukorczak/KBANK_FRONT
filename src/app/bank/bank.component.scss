@@ -16,17 +16,17 @@
   }
 
   a {
-    color: #007bff; /* Cor padrão para links do Bootstrap */
-    text-decoration: underline; /* Sublinhado para links */
+    color: #007bff;
+    text-decoration: underline;
   }
 
   a:hover {
-    color: #0056b3; /* Cor ao passar o mouse sobre o link */
+    color: #0056b3;
   }
 }
 
 .masthead {
-  background-color: #007bff; /* Mesma cor da barra de navegação */
+  background-color: #007bff;
   color: #fff;
   padding: 100px 0;
   text-align: center;
@@ -35,14 +35,15 @@
     font-size: 3em;
     margin-bottom: 20px;
     font-weight: bold;
+    line-height: 1;
   }
 
   p {
     font-size: 1.5em;
     margin-bottom: 40px;
+    line-height: 1.5;
   }
 }
-
 
 .features {
   display: flex;
@@ -65,13 +66,13 @@
 }
 
 .deposito-operacao-section {
-  background-color: #f0f0f0; /* Cinza claro */
+  background-color: #f0f0f0;
 }
 
 .saque-operacao-section {
-  background-color: #e0e0e0; /* Cinza claro mais escuro */
+  background-color: #e0e0e0;
 }
 
 .transferencia-operacao-section {
-  background-color: #d1d8db; /* Cinza mais claro */
+  background-color: #d1d8db; 
 }

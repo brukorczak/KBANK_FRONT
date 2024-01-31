@@ -6,7 +6,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
-  styleUrls: ['./sign-up.component.scss']
+  styleUrls: ['./sign-up.component.scss'],
 })
 export class SignUpComponent {
   formSignUp: FormGroup;
@@ -20,8 +20,11 @@ export class SignUpComponent {
   password: string = '';
   address: string = '';
 
-
-  constructor(private signUpService: SignUpService, private router:Router, private fb: FormBuilder) {
+  constructor(
+    private signUpService: SignUpService,
+    private router: Router,
+    private fb: FormBuilder
+  ) {
     this.formSignUp = this.fb.group({
       name: ['', [Validators.required]],
       age: ['', Validators.required],
@@ -43,15 +46,18 @@ export class SignUpComponent {
 
     const { name, age, phone, cpf, password, address } = this.formSignUp.value;
 
-    this.signUpService.signUp(name, age, phone, address, cpf, password).subscribe(
-      (response: any) => {
-        console.log('Usuário Cadastrado:', response);
-        this.router.navigate(['/login']);
-      },
-      (error) => {
-        console.error('Erro de cadastro:', error);
-        this.mensagemErro = 'Erro ao cadastrar usuário. Verifique campos e dados e tente novamente.';
-      }
-    );
+    this.signUpService
+      .signUp(name, age, phone, address, cpf, password)
+      .subscribe(
+        (response: any) => {
+          console.log('Usuário Cadastrado:', response);
+          this.router.navigate(['/login']);
+        },
+        (error) => {
+          console.error('Erro de cadastro:', error);
+          this.mensagemErro =
+            'Erro ao cadastrar usuário. Verifique campos e dados e tente novamente.';
+        }
+      );
   }
 }
