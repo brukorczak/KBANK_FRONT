@@ -1,7 +1,7 @@
 // settings.component.ts
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../services/login.service';
-import { SettingsService } from './settings.service';
+import { SettingsService } from '../services/settings.service';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 

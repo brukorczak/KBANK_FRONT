@@ -12,7 +12,7 @@ export class SettingsService {
   constructor(private http: HttpClient) {}
 
   getUserInfoById(userId: number): Observable<any> {
-    const url = `${this.apiUrl}/${userId}/info`;
+    const url = `${this.apiUrl}/${userId}/user`;
     return this.http.get<any>(url);
   }
 

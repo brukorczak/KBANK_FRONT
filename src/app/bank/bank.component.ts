@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'; // Importe o FormBuilder e Validators
 
-import { BankService } from './bank.service'; // Importe o serviço
+import { BankService } from '../services/bank.service'; // Importe o serviço
 
 @Component({
   selector: 'app-bank',
