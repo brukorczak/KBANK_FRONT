@@ -1,4 +1,3 @@
-// profile.component.ts
 import { Component, OnInit } from '@angular/core';
 import { ProfileService } from '../services/profile.service';
 import { LoginService } from '../services/login.service';
@@ -44,19 +43,17 @@ export class ProfileComponent implements OnInit {
     { value: 'jinbe', image: 'assets/img_icons/jinbe.jpeg', alt: 'Jinbe Icon' },
   ];
 
-  //move para icone anterior
   prevIcon() {
     this.currentIndex =
       (this.currentIndex - 1 + this.userIcons.length) % this.userIcons.length;
     this.saveSelectedImageIndex();
   }
-  //move para o proximo icone
+
   nextIcon() {
     this.currentIndex = (this.currentIndex + 1) % this.userIcons.length;
     this.saveSelectedImageIndex();
   }
 
-  //salva o índice da imagem selecionada no armazenamento local
   private saveSelectedImageIndex() {
     localStorage.setItem('selectedImageIndex', String(this.currentIndex));
   }
@@ -79,7 +76,6 @@ export class ProfileComponent implements OnInit {
     this.userName = this.loginService.getAuthenticatedUserName();
 
     if (this.userId !== null) {
-      // Busca informações do usuário
       this.profileService.getUserInfoById(this.userId).subscribe(
         (user: IUser) => {
           this.userName = user.name;
@@ -92,7 +88,6 @@ export class ProfileComponent implements OnInit {
         }
       );
 
-      // Busca informações do balanceList
       this.profileService.getBalanceList(this.userId).subscribe(
         (balanceList: IAccount[]) => {
           this.balanceList = balanceList;
@@ -114,13 +109,12 @@ export class ProfileComponent implements OnInit {
   createAccount() {
     console.log('Criando conta...');
     if (this.userId !== null) {
-      // Adicione uma verificação de nulo
       this.profileService
         .createAccount(this.userId, this.selectedAccountType)
         .subscribe(
           (response: any) => {
             console.log('Conta criada com sucesso:', response);
-            this.closeAccountModal(); // Fechar o modal após criar a conta
+            this.closeAccountModal();
           },
           (error) => {
             console.error('Erro ao criar conta:', error);

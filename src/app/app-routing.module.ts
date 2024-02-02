@@ -9,19 +9,19 @@ import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-  { path: 'sign-up', component: SignUpComponent},
-  { path: 'login', component: LoginComponent},
-  { path: 'header', component: HeaderComponent},
-  { path: 'profile', component: ProfileComponent},
-  { path: 'banco', component: BankComponent},
-  { path: 'settings', component: SettingsComponent},
-  { path: 'home', component: HomeComponent},
+  { path: 'sign-up', component: SignUpComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'header', component: HeaderComponent },
+  { path: 'profile', component: ProfileComponent },
+  { path: 'banco', component: BankComponent },
+  { path: 'settings', component: SettingsComponent },
+  { path: 'home', component: HomeComponent },
 
-  { path: '', redirectTo: 'login', pathMatch: 'full'}
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

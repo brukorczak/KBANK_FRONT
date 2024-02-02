@@ -15,7 +15,6 @@ import { MatMenuModule } from '@angular/material/menu';
 import { BankComponent } from './bank/bank.component';
 import { SettingsComponent } from './settings/settings.component';
 import { MatIconModule } from '@angular/material/icon';
-import { NgxMaskModule } from 'ngx-mask';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 
@@ -41,9 +40,8 @@ import { HomeComponent } from './home/home.component';
     FormsModule,
     ReactiveFormsModule,
     MatIconModule,
-
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

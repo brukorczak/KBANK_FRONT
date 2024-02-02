@@ -1,9 +1,7 @@
-// settings.component.ts
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../services/login.service';
 import { SettingsService } from '../services/settings.service';
 import { Router } from '@angular/router';
-import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-settings',
@@ -56,11 +54,10 @@ export class SettingsComponent implements OnInit {
         address: this.userAddress,
       };
 
-      // Update user information
       this.settingsService.updateUser(this.userId, userData).subscribe(
         (response: any) => {
           console.log('User information updated successfully:', response);
-          this.editingMode = false; // Exit editing mode
+          this.editingMode = false;
         },
         (error) => {
           console.error('Error updating user information:', error);

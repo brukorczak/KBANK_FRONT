@@ -19,7 +19,7 @@ export class BankService {
 
   withdraw(accountNumber: string, value: number): Observable<any> {
     const withdrawData = { accountNumber, value };
-    const headers = { 'Content-Type': 'application/json' }; // Adicione cabeçalho JSON
+    const headers = { 'Content-Type': 'application/json' };
     return this.http.post(`${this.apiUrl}/withdraw`, withdrawData, {
       headers,
       responseType: 'text',
@@ -32,7 +32,7 @@ export class BankService {
     value: number
   ): Observable<any> {
     const transferData = { sourceAccountNumber, targetAccountNumber, value };
-    const headers = { 'Content-Type': 'application/json' }; // Adicione cabeçalho JSON
+    const headers = { 'Content-Type': 'application/json' };
 
     return this.http.patch(`${this.apiUrl}/transfer`, transferData, {
       headers,

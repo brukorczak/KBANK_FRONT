@@ -1,7 +1,7 @@
 .toolbar {
-  background-color: #007bff; /* Azul */
+  background-color: #007bff;
   height: 70px;
-  border-bottom: 2px solid #007bff; /* Borda na parte inferior da barra de ferramentas */
+  border-bottom: 2px solid #007bff;
 }
 
 .toolbar-logo {
@@ -44,7 +44,7 @@ span {
 .btn1:hover,
 .btn2:hover,
 .btn3:hover {
-  box-shadow: 5px 0 10px -5px #10ec11; /* Sombra verde ao passar o mouse */
+  box-shadow: 5px 0 10px -5px #10ec11;
 }
 
 .row.fixed-bottom {
@@ -52,16 +52,16 @@ span {
   bottom: 0;
   width: 100%;
   background-color: #fff;
-  border-top: 2px solid #007bff; /* Aumente a espessura da borda e use azul */
+  border-top: 2px solid #007bff;
   z-index: 1000;
   padding: 10px 0;
   text-align: center;
-  font-size: 14px; /* Aumente o tamanho da fonte */
+  font-size: 14px;
   color: #444444;
 }
 
 h1,
 h2,
 h3 {
-  color: #007bff; /* Azul para cabeçalhos */
+  color: #007bff;
 }

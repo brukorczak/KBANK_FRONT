@@ -11,12 +11,11 @@ export class LoginService {
   private authenticatedUserName: string | null = null;
 
   constructor(private http: HttpClient) {
-    // Ao inicializar o serviço, tenta recuperar dados do localStorage
     const storedUserId = localStorage.getItem('authenticatedUserId');
     const storedUserName = localStorage.getItem('authenticatedUserName');
 
     if (storedUserId && storedUserName) {
-      this.authenticatedUserId = +storedUserId; // Converte para número
+      this.authenticatedUserId = +storedUserId;
       this.authenticatedUserName = storedUserName;
     }
   }
@@ -34,7 +33,6 @@ export class LoginService {
             this.authenticatedUserId = response.id;
             this.authenticatedUserName = response.name;
 
-            // Salva os dados no localStorage
             localStorage.setItem(
               'authenticatedUserId',
               String(this.authenticatedUserId)
@@ -42,7 +40,7 @@ export class LoginService {
             localStorage.setItem(
               'authenticatedUserName',
               this.authenticatedUserName || ''
-            ); // Garante que seja uma string
+            );
           }
         })
       );

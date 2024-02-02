@@ -2,12 +2,18 @@ body {
   background: #fff;
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  // overflow-y: hidden; <-- Remova esta linha
 }
 
-html, body {
-   height: 100%;
-  }
+html,
+body {
+  height: 100%;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

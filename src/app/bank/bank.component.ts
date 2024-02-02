@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms'; // Importe o FormBuilder e Validators
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { BankService } from '../services/bank.service'; // Importe o serviço
+import { BankService } from '../services/bank.service';
 
 @Component({
   selector: 'app-bank',
@@ -10,7 +10,7 @@ import { BankService } from '../services/bank.service'; // Importe o serviço
   styleUrls: ['./bank.component.scss'],
 })
 export class BankComponent {
-  formDeposit: FormGroup; // Adicione o FormGroup para o formulário
+  formDeposit: FormGroup;
   formWithdraw: FormGroup;
   formTransfer: FormGroup;
   mensagemSucessoDeposito: string = '';
@@ -25,7 +25,7 @@ export class BankComponent {
   constructor(
     private router: Router,
     private bankService: BankService,
-    private fb: FormBuilder // Injete o FormBuilder
+    private fb: FormBuilder
   ) {
     this.formDeposit = this.fb.group({
       accountNumber: ['', Validators.required],
