@@ -4,9 +4,9 @@
 
 Esta é uma aplicação que integra com a API do BANCO para realizar operações bancárias e gerenciar usuários. A API do BANCO está disponível em [GitHub](https://github.com/brukorczak/KBANK_API.git).
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.8.
+Este projeto foi gerado com [Angular CLI](https://github.com/angular/angular-cli) versao 16.2.8.
 
-## Development server
+## Servidor de desenvolvimento
 
 Execute ng serve para iniciar um servidor de desenvolvimento. Navegue até http://localhost:4200/. A aplicação será recarregada automaticamente se você modificar algum dos arquivos de origem.
 
