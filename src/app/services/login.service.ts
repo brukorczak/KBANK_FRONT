@@ -15,7 +15,7 @@ export class LoginService {
     const storedUserName = localStorage.getItem('authenticatedUserName');
 
     if (storedUserId && storedUserName) {
-      this.authenticatedUserId = +storedUserId;
+      this.authenticatedUserId = +storedUserId;//converte para numero
       this.authenticatedUserName = storedUserName;
     }
   }

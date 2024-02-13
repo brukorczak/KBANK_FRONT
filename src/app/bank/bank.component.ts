@@ -100,6 +100,7 @@ export class BankComponent {
         'Por favor, preencha todos os campos corretamente.';
     }
   }
+  
   scrollToSection(sectionId: string): void {
     const element = document.getElementById(sectionId);
     if (element) {

@@ -41,7 +41,7 @@ export class LoginComponent {
         },
         (error) => {
           console.error('Erro de autenticação:', error);
-          this.mensagemErro = 'Usuário não encontrado ou senha incorreta';
+          this.mensagemErro = 'Usuário não encontrado ou cpf ou a senha incorreta';
         }
       );
   }

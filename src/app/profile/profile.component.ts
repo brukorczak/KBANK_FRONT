@@ -3,6 +3,7 @@ import { ProfileService } from '../services/profile.service';
 import { LoginService } from '../services/login.service';
 import { IUser } from '../model/IUser';
 import { IAccount } from '../model/IAccount';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-profile',
@@ -19,6 +20,7 @@ export class ProfileComponent implements OnInit {
   showAccountModal: boolean = false;
   selectedAccountType: string = '';
   showAccountInfo: boolean = false;
+  subsForm = new Subscription();
 
   currentIndex = 0;
   editingMode = false;
@@ -33,11 +35,7 @@ export class ProfileComponent implements OnInit {
     { value: 'zoro', image: 'assets/img_icons/zoro.jpeg', alt: 'zoro Icon' },
     { value: 'nami', image: 'assets/img_icons/nami.jpeg', alt: 'nami Icon' },
     { value: 'sanji', image: 'assets/img_icons/sanji.jpeg', alt: 'sanji Icon' },
-    {
-      value: 'chopper',
-      image: 'assets/img_icons/chooper.jpeg',
-      alt: 'Chopper Icon',
-    },
+    { value: 'chopper', image: 'assets/img_icons/chooper.jpeg', alt: 'Chopper Icon'},
     { value: 'brook', image: 'assets/img_icons/brook.jpeg', alt: 'Brook Icon' },
     { value: 'robin', image: 'assets/img_icons/robin.jpeg', alt: 'Robin Icon' },
     { value: 'jinbe', image: 'assets/img_icons/jinbe.jpeg', alt: 'Jinbe Icon' },
@@ -46,12 +44,10 @@ export class ProfileComponent implements OnInit {
   prevIcon() {
     this.currentIndex =
       (this.currentIndex - 1 + this.userIcons.length) % this.userIcons.length;
-    this.saveSelectedImageIndex();
   }
 
   nextIcon() {
     this.currentIndex = (this.currentIndex + 1) % this.userIcons.length;
-    this.saveSelectedImageIndex();
   }
 
   private saveSelectedImageIndex() {
@@ -84,7 +80,7 @@ export class ProfileComponent implements OnInit {
           this.userAddress = user.address;
         },
         (error) => {
-          console.error('Error getting user information:', error);
+          console.error('Erro ao obter informações do usuário:', error);
         }
       );
 
@@ -93,7 +89,7 @@ export class ProfileComponent implements OnInit {
           this.balanceList = balanceList;
         },
         (error) => {
-          console.error('Error getting balance list:', error);
+          console.error('Erro ao obter lista da conta', error);
         }
       );
     }
@@ -102,8 +98,17 @@ export class ProfileComponent implements OnInit {
     this.currentIndex = storedIndex ? +storedIndex : 0;
   }
 
+  //visibilidade infor
   toggleAccountInfo() {
     this.showAccountInfo = !this.showAccountInfo;
+  }
+
+  //visibilidade modal
+  toggleAccountModal() {
+    this.showAccountModal = !this.showAccountModal;
+    if (!this.showAccountModal) {
+      document.body.classList.remove('modal-open');
+    }
   }
 
   createAccount() {
@@ -130,14 +135,11 @@ export class ProfileComponent implements OnInit {
     document.body.classList.remove('modal-open');
   }
 
-  toggleAccountModal() {
-    this.showAccountModal = !this.showAccountModal;
-    if (!this.showAccountModal) {
-      document.body.classList.remove('modal-open');
-    }
-  }
-
   hasAccountType(): boolean {
     return this.balanceList && this.balanceList.length > 0;
+  }
+
+  ngOnDestroy(): void {
+    this.subsForm.unsubscribe();
   }
 }
