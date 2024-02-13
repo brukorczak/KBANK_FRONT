@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../services/login.service';
 import { SettingsService } from '../services/settings.service';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-settings',
@@ -15,6 +16,7 @@ export class SettingsComponent implements OnInit {
   userPhone: string | null = null;
   userAddress: string | null = null;
   editingMode = false;
+  subsForm = new Subscription();
 
   constructor(
     private loginService: LoginService,
@@ -84,5 +86,9 @@ export class SettingsComponent implements OnInit {
         }
       );
     }
+  }
+
+  ngOnDestroy(): void {
+    this.subsForm.unsubscribe();
   }
 }
