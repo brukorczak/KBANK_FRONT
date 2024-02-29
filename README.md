@@ -19,3 +19,5 @@ A aplicação KBANK oferece uma experiência bancária eficiente e segura, possi
 O aplicativo utiliza o Angular Router para gerenciar a navegação entre as páginas. O arquivo app-routing.module.ts contém a configuração das rotas, redirecionando os usuários para as páginas apropriadas com base na URL.
 
 Esperamos que esta aplicação proporcione uma experiência bancária eficiente, segura e amigável para os usuários.
+
+> **OBS:_** Algumas partes do front foi inspirados em templates que achei em Start Bootstrap e BootstrapMade.
